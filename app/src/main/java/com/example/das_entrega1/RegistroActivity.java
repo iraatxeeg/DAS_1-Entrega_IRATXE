@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 
@@ -55,19 +57,22 @@ public class RegistroActivity extends AppCompatActivity implements Serializable 
     }
 
     private void showDatePickerDialog() {
-        ClaseDialogoDatePicker dialogo = ClaseDialogoDatePicker.newInstance(new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int day) {
-                final String selectedDate = twoDigits(day)+"/"+twoDigits(month)+"/"+year;
-                cumple.setText(selectedDate);
-            }
-        });
+        ClaseDialogoDatePicker dialogo = new ClaseDialogoDatePicker(cumple);
+//        {
+//            @Override
+//            public void onDateSet(DatePicker view, int year, int month, int day) {
+//                final String selectedDate = twoDigits(day)+"-"+twoDigits(month)+"-"+year;
+//                Log.i("hola", "hola");
+//                cumple.setText("hola");
+//
+//            }
+//        });
         dialogo.show(getSupportFragmentManager(), "datePicker");
     }
 
-    private String twoDigits(int day) {
-        return (day<10) ? ("0"+day) : String.valueOf(day);
-    }
+//    private String twoDigits(int day) {
+//        return (day<10) ? ("0"+day) : String.valueOf(day);
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,14 +98,20 @@ public class RegistroActivity extends AppCompatActivity implements Serializable 
                     insert.put("Usuario", usuario.getText().toString());
                     insert.put("Password", password.getText().toString());
                     insert.put("Nombre",nombre.getText().toString());
-
+                    insert.put("Apellidos",apellidos.getText().toString());
+                    insert.put("Cumpleaños",cumple.getText().toString());
 
                     bd.insert("Usuarios", null, insert);
+                    Toast toast = Toast.makeText(this, "Registro realizado con éxito.", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0,0);
+                    toast.show();
+                    Intent main = new Intent(this, MainActivity.class);
+                    startActivity(main);
+                    finish();
+
                 } else { // Avisar de que la contraseña está mal
                     DialogFragment dialogoAlerta = new ClaseDialogoPasswordError();
                     dialogoAlerta.show(getSupportFragmentManager(), "PasswordError");
-
-
                 }
             }
         }
