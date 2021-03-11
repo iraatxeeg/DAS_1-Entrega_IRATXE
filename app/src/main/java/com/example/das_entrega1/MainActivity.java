@@ -22,8 +22,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        miBD GestorDB = new miBD (this, "MusicaBD", null, 1);
-        SQLiteDatabase bd = GestorDB.getWritableDatabase();
+        SQLiteDatabase bd = miBD.getInstance(this).getWritableDatabase();
 
         EditText usuario = findViewById(R.id.editUsuario);
         EditText password = findViewById(R.id.editPassword);
@@ -59,5 +58,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
             }
         });
     }
+
 
 }

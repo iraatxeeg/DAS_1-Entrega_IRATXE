@@ -38,8 +38,7 @@ public class RegistroActivity extends AppCompatActivity implements Serializable 
         setContentView(R.layout.activity_registro);
         setSupportActionBar(findViewById(R.id.barraRegistro));
 
-        miBD GestorDB = new miBD(this, "MusicaBD", null, 1);
-        bd = GestorDB.getWritableDatabase();
+        bd = miBD.getInstance(this).getWritableDatabase();
 
         usuario = findViewById(R.id.editUsuarioR);
         password = findViewById(R.id.editPasswordR);
@@ -58,21 +57,8 @@ public class RegistroActivity extends AppCompatActivity implements Serializable 
 
     private void showDatePickerDialog() {
         ClaseDialogoDatePicker dialogo = new ClaseDialogoDatePicker(cumple);
-//        {
-//            @Override
-//            public void onDateSet(DatePicker view, int year, int month, int day) {
-//                final String selectedDate = twoDigits(day)+"-"+twoDigits(month)+"-"+year;
-//                Log.i("hola", "hola");
-//                cumple.setText("hola");
-//
-//            }
-//        });
         dialogo.show(getSupportFragmentManager(), "datePicker");
     }
-
-//    private String twoDigits(int day) {
-//        return (day<10) ? ("0"+day) : String.valueOf(day);
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
