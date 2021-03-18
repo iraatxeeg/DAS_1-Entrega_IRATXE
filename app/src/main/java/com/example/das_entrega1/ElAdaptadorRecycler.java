@@ -7,10 +7,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ElAdaptadorRecycler extends RecyclerView.Adapter<ElViewHolder> {
+public class ElAdaptadorRecycler extends RecyclerView.Adapter<ElViewHolder>
+ implements View.OnClickListener {
 
     private String[] losNombres;
     private int[] lasImagenes;
+    private View.OnClickListener listener;
 
     public ElAdaptadorRecycler (String[] nombres, int[] imagenes) {
         losNombres = nombres;
@@ -22,6 +24,7 @@ public class ElAdaptadorRecycler extends RecyclerView.Adapter<ElViewHolder> {
     public ElViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View elLayoutDeCadaItem = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,null);
         ElViewHolder evh = new ElViewHolder(elLayoutDeCadaItem);
+        elLayoutDeCadaItem.setOnClickListener(this);
         return evh;
     }
 
@@ -34,5 +37,16 @@ public class ElAdaptadorRecycler extends RecyclerView.Adapter<ElViewHolder> {
     @Override
     public int getItemCount() {
         return losNombres.length;
+    }
+
+    public void setOnClickListener(View.OnClickListener pListener) {
+        listener = pListener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (listener != null) {
+            listener.onClick(v);
+        }
     }
 }

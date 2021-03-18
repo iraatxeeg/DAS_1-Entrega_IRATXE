@@ -1,5 +1,6 @@
 package com.example.das_entrega1;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -9,7 +10,7 @@ import androidx.annotation.Nullable;
 
 import java.io.Serializable;
 
-public class miBD extends SQLiteOpenHelper implements Serializable {
+public class miBD extends SQLiteOpenHelper {
 
     private static miBD mInstance = null;
 
@@ -41,6 +42,38 @@ public class miBD extends SQLiteOpenHelper implements Serializable {
         db.execSQL("CREATE TABLE Artistas ('ID' PRIMARY KEY " +
                 "NOT NULL, 'NombreCompleto' VARCHAR(255), 'Nacimiento' VARCHAR(255), " +
                 "'Muerte' VARCHAR(255))");
+
+        ContentValues insert = new ContentValues();
+        insert.put("ID", "1");
+        insert.put("NombreCompleto", "Niall Horan");
+        insert.put("Nacimiento", "13/09/1993");
+        insert.put("Muerte", "");
+        db.insert("Artistas", null, insert);
+
+        insert.put("ID", "2");
+        insert.put("NombreCompleto", "Shawn Mendes");
+        insert.put("Nacimiento", "08/08/1998");
+        insert.put("Muerte", "");
+        db.insert("Artistas", null, insert);
+
+        insert.put("ID", "3");
+        insert.put("NombreCompleto", "Selena Gómez");
+        insert.put("Nacimiento", "22/07/1992");
+        insert.put("Muerte", "");
+        db.insert("Artistas", null, insert);
+
+        insert.put("ID", "4");
+        insert.put("NombreCompleto", "Demi Lovato");
+        insert.put("Nacimiento", "20/08/1992");
+        insert.put("Muerte", "");
+        db.insert("Artistas", null, insert);
+
+        insert.put("ID", "5");
+        insert.put("NombreCompleto", "");
+        insert.put("Nacimiento", "22/07/1992");
+        insert.put("Muerte", "");
+        db.insert("Artistas", null, insert);
+
 
         // ÁLBUMES
         db.execSQL("CREATE TABLE Álbumes ('ID' PRIMARY KEY " +

@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".ActivityArtista"></activity>
         <activity android:name=".RegistroActivity" />
         <activity android:name=".ActivityListArtistas" />
         <activity android:name=".MainActivity">

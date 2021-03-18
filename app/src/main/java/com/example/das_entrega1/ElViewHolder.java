@@ -16,5 +16,11 @@ public class ElViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         eltexto = itemView.findViewById(R.id.texto);
         laimagen = itemView.findViewById(R.id.foto);
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
     }
 }

@@ -69,36 +69,41 @@ public class RegistroActivity extends AppCompatActivity implements Serializable 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case R.id.opcionCancelar: {
+        if (id == R.id.opcionCancelar) {
+//            case R.id.opcionCancelar: {
                 Intent iMain = new Intent(this, MainActivity.class);
                 startActivity(iMain);
                 finish();
+
+        }
+//            case R.id.opcionRegistrarme: {
+        else {
+            if(usuario.getText().toString() == null || password.getText().toString() == null
+                    || password2.getText().toString() == null || nombre.getText().toString() == null
+            || apellidos.getText().toString() == null || cumple.getText().toString() == null) {
+                DialogFragment dialogoAlerta = new ClaseDialogoCamposSinRellenar();
+                dialogoAlerta.show(getSupportFragmentManager(), "CamposSinRellenar");
             }
-            case R.id.opcionRegistrarme: {
+            else if (password.getText().toString().equals(password2.getText().toString())) {
+                // Insertar en BD
+                ContentValues insert = new ContentValues();
+                insert.put("Usuario", usuario.getText().toString());
+                insert.put("Password", password.getText().toString());
+                insert.put("Nombre",nombre.getText().toString());
+                insert.put("Apellidos",apellidos.getText().toString());
+                insert.put("Cumpleaños",cumple.getText().toString());
 
+                bd.insert("Usuarios", null, insert);
+                Toast toast = Toast.makeText(this, "Registro realizado con éxito.", Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0,0);
+                toast.show();
+                Intent iMain = new Intent(this, MainActivity.class);
+                startActivity(iMain);
+                finish();
 
-                if (password.getText().toString().equals(password2.getText().toString())) {
-                    // Insertar en BD
-                    ContentValues insert = new ContentValues();
-                    insert.put("Usuario", usuario.getText().toString());
-                    insert.put("Password", password.getText().toString());
-                    insert.put("Nombre",nombre.getText().toString());
-                    insert.put("Apellidos",apellidos.getText().toString());
-                    insert.put("Cumpleaños",cumple.getText().toString());
-
-                    bd.insert("Usuarios", null, insert);
-                    Toast toast = Toast.makeText(this, "Registro realizado con éxito.", Toast.LENGTH_LONG);
-                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0,0);
-                    toast.show();
-                    Intent main = new Intent(this, MainActivity.class);
-                    startActivity(main);
-                    finish();
-
-                } else { // Avisar de que la contraseña está mal
-                    DialogFragment dialogoAlerta = new ClaseDialogoPasswordError();
-                    dialogoAlerta.show(getSupportFragmentManager(), "PasswordError");
-                }
+            } else { // Avisar de que la contraseña está mal
+                DialogFragment dialogoAlerta = new ClaseDialogoPasswordError();
+                dialogoAlerta.show(getSupportFragmentManager(), "PasswordError");
             }
         }
         return true;
