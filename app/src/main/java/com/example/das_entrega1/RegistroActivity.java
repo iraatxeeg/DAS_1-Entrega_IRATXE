@@ -94,6 +94,7 @@ public class RegistroActivity extends AppCompatActivity implements Serializable 
                 insert.put("Cumpleaños",cumple.getText().toString());
 
                 bd.insert("Usuarios", null, insert);
+
                 Toast toast = Toast.makeText(this, "Registro realizado con éxito.", Toast.LENGTH_LONG);
                 toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0,0);
                 toast.show();

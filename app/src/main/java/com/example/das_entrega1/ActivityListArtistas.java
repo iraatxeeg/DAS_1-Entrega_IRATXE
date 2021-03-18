@@ -24,17 +24,19 @@ public class ActivityListArtistas extends AppCompatActivity {
         SQLiteDatabase bd = miBD.getInstance(this).getReadableDatabase();
         RecyclerView laLista = findViewById(R.id.elreciclerview);
 
+
         String[] nombres = {"Niall Horan", "Shawn Mendes", "Selena Gómez",
-        "Demi Lovato", "One Direction"};
+        "Demi Lovato", "Billie Eilish"};
+        int[] ids = {1,2,3,4,5};
         int[] fotos = {R.drawable.niallhoran, R.drawable.shawnmendes, R.drawable.selenagomez,
-        R.drawable.demilovato, R.drawable.onedirection};
+        R.drawable.demilovato, R.drawable.billieeilish};
         ElAdaptadorRecycler elAdaptador = new ElAdaptadorRecycler(nombres, fotos);
         elAdaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent iInfoArtista = new Intent(getBaseContext(), ActivityArtista.class);
-                iInfoArtista.putExtra("Artista",nombres[laLista.getChildAdapterPosition(v)]);
-                startActivity(iInfoArtista);
+                Intent idArtista = new Intent(getBaseContext(), ActivityArtista.class);
+                idArtista.putExtra("idArtista",ids[laLista.getChildAdapterPosition(v)]);
+                startActivity(idArtista);
             }
         });
         laLista.setAdapter(elAdaptador);

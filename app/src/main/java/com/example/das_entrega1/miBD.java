@@ -40,37 +40,42 @@ public class miBD extends SQLiteOpenHelper {
 
         // ARTISTAS
         db.execSQL("CREATE TABLE Artistas ('ID' PRIMARY KEY " +
-                "NOT NULL, 'NombreCompleto' VARCHAR(255), 'Nacimiento' VARCHAR(255), " +
-                "'Muerte' VARCHAR(255))");
+                "NOT NULL, 'NombreCompleto' VARCHAR(255), 'Nacimiento' DATE, 'LugarNac' " +
+                "VARCHAR(255), 'Muerte' VARCHAR(255))");
 
         ContentValues insert = new ContentValues();
         insert.put("ID", "1");
         insert.put("NombreCompleto", "Niall Horan");
         insert.put("Nacimiento", "13/09/1993");
+        insert.put("LugarNac", "Mullingar, Irlanda");
         insert.put("Muerte", "");
         db.insert("Artistas", null, insert);
 
         insert.put("ID", "2");
         insert.put("NombreCompleto", "Shawn Mendes");
         insert.put("Nacimiento", "08/08/1998");
+        insert.put("LugarNac", "Pickering, Canadá");
         insert.put("Muerte", "");
         db.insert("Artistas", null, insert);
 
         insert.put("ID", "3");
         insert.put("NombreCompleto", "Selena Gómez");
         insert.put("Nacimiento", "22/07/1992");
+        insert.put("LugarNac", "Grand Prairie, Texas, Estados Unidos");
         insert.put("Muerte", "");
         db.insert("Artistas", null, insert);
 
         insert.put("ID", "4");
         insert.put("NombreCompleto", "Demi Lovato");
         insert.put("Nacimiento", "20/08/1992");
+        insert.put("LugarNac", "Albuquerque, Nuevo México, Estados Unidos");
         insert.put("Muerte", "");
         db.insert("Artistas", null, insert);
 
         insert.put("ID", "5");
         insert.put("NombreCompleto", "");
         insert.put("Nacimiento", "22/07/1992");
+        insert.put("LugarNac", "");
         insert.put("Muerte", "");
         db.insert("Artistas", null, insert);
 
