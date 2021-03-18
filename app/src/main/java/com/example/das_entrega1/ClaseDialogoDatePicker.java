@@ -35,7 +35,7 @@ public class ClaseDialogoDatePicker extends DialogFragment implements DatePicker
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int day) {
-          final String selectedDate = twoDigits(day)+"-"+twoDigits(month)+"-"+year;
+          final String selectedDate = twoDigits(day)+"-"+twoDigits(month+1)+"-"+year;
           txt.setText(selectedDate);
 
 
