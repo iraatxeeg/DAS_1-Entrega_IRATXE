@@ -23,7 +23,7 @@ import android.widget.Toast;
 import java.io.Serializable;
 
 public class RegistroActivity extends AppCompatActivity implements Serializable {
-
+// Activity para registar un nuevo usuario en la aplicación
     SQLiteDatabase bd;
     EditText usuario;
     EditText password;
@@ -55,6 +55,7 @@ public class RegistroActivity extends AppCompatActivity implements Serializable 
 
     }
 
+    // show Dialog para elegir la fecha de cumpleaños
     private void showDatePickerDialog() {
         ClaseDialogoDatePicker dialogo = new ClaseDialogoDatePicker(cumple);
         dialogo.show(getSupportFragmentManager(), "datePicker");
@@ -69,21 +70,23 @@ public class RegistroActivity extends AppCompatActivity implements Serializable 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        // Opción cancelar -> Volver a la pantalla de Login
         if (id == R.id.opcionCancelar) {
-//            case R.id.opcionCancelar: {
                 Intent iMain = new Intent(this, MainActivity.class);
                 startActivity(iMain);
                 finish();
 
         }
-//            case R.id.opcionRegistrarme: {
+        // Opción Registrar -> insertar en la base de datos
         else {
+            // Si alguno de los campos no está rellenado
             if(usuario.getText().toString() == null || password.getText().toString() == null
                     || password2.getText().toString() == null || nombre.getText().toString() == null
             || apellidos.getText().toString() == null || cumple.getText().toString() == null) {
                 DialogFragment dialogoAlerta = new ClaseDialogoCamposSinRellenar();
                 dialogoAlerta.show(getSupportFragmentManager(), "CamposSinRellenar");
             }
+            // Todos los campos se han rellenado y las contraseñas coinciden
             else if (password.getText().toString().equals(password2.getText().toString())) {
                 // Insertar en BD
                 ContentValues insert = new ContentValues();
@@ -102,7 +105,7 @@ public class RegistroActivity extends AppCompatActivity implements Serializable 
                 startActivity(iMain);
                 finish();
 
-            } else { // Avisar de que la contraseña está mal
+            } else {  // Si las contraseñas no coinciden se avisa al usuario
                 DialogFragment dialogoAlerta = new ClaseDialogoPasswordError();
                 dialogoAlerta.show(getSupportFragmentManager(), "PasswordError");
             }

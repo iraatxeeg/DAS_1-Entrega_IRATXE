@@ -1,11 +1,13 @@
 package com.example.das_entrega1;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import java.text.ParseException;
@@ -14,11 +16,13 @@ import java.util.Date;
 
 public class ActivityArtista extends AppCompatActivity {
 
+    // Actividad para mostrar la información de cada artista
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_artista);
 
+        // Barra con opciones: Añadir artista a favs
         setSupportActionBar(findViewById(R.id.labarra1));
 
         Bundle extras = getIntent().getExtras();
@@ -30,20 +34,18 @@ public class ActivityArtista extends AppCompatActivity {
         SQLiteDatabase bd = miBD.getInstance(this).getWritableDatabase();
 
         String[] campos = new String[] {"ID", "NombreCompleto",
-        "Nacimiento", "Muerte"};
+        "Nacimiento"};
         String[] argumentos = new String[] {idArtista};
         Cursor c = bd.query("Artistas",campos,"ID=?",argumentos,null,null,null);
 
         String nombre = "";
         String nacimiento = "";
         String lugar = "";
-        String muerte = "";
 
         if(c.moveToNext()) {
             nombre = c.getString(1);
             nacimiento = c.getString(2);
             lugar = c.getString(3);
-            muerte = c.getString(4);
         }
 
         TextView txtNombre = findViewById(R.id.txtNombreArtista1);
@@ -56,7 +58,7 @@ public class ActivityArtista extends AppCompatActivity {
         Date fechaactual = new Date();
         Date dateNac = new Date();
         try {
-            dateNac = new SimpleDateFormat("dd/MM/yyyy").parse(nacimiento)
+            dateNac = new SimpleDateFormat("dd/MM/yyyy").parse(nacimiento);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -68,6 +70,15 @@ public class ActivityArtista extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.barraartistasinfo, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.añadirArtistaFav) {
+
+        }
         return true;
     }
 }

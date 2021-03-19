@@ -4,8 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/opcion"
+        android:id="@+id/añadirArtistaFav"
         android:icon="@android:drawable/btn_star_big_on"
-        android:title="Hola"
+        android:title="Añadir A Favoritos"
         app:showAsAction="ifRoom|withText" />
 </menu>

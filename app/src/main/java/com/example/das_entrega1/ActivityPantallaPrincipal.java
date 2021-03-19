@@ -1,26 +1,31 @@
 package com.example.das_entrega1;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
-import java.util.ArrayList;
+public class ActivityPantallaPrincipal extends AppCompatActivity {
 
-public class ActivityListArtistas extends AppCompatActivity {
+    String usuario = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_artistas);
+        setContentView(R.layout.activity_pantalla_principal);
+        setSupportActionBar(findViewById(R.id.labarraPrincipal));
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            usuario = extras.getString("Usuario");
+        }
         SQLiteDatabase bd = miBD.getInstance(this).getReadableDatabase();
         RecyclerView laLista = findViewById(R.id.elreciclerview);
 
@@ -46,4 +51,20 @@ public class ActivityListArtistas extends AppCompatActivity {
         laLista.setLayoutManager(layout);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.barrapantallaprincipal, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.Perfil) {
+            Intent iPerfil = new Intent(this, ActivityPerfil.class);
+            iPerfil.putExtra("Usuario", usuario);
+            startActivity(iPerfil);
+        }
+        return true;
+    }
 }
