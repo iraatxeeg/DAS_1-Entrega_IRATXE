@@ -80,14 +80,15 @@ public class RegistroActivity extends AppCompatActivity implements Serializable 
         // Opción Registrar -> insertar en la base de datos
         else {
             // Si alguno de los campos no está rellenado
-            if(usuario.getText().toString() == null || password.getText().toString() == null
-                    || password2.getText().toString() == null || nombre.getText().toString() == null
-            || apellidos.getText().toString() == null || cumple.getText().toString() == null) {
+            if(usuario.getText().toString().equals("") || password.getText().toString().equals("")
+                    || password2.getText().toString().equals("") || nombre.getText().toString().equals("")
+            || apellidos.getText().toString().equals("") || cumple.getText().toString().equals("")) {
                 DialogFragment dialogoAlerta = new ClaseDialogoCamposSinRellenar();
                 dialogoAlerta.show(getSupportFragmentManager(), "CamposSinRellenar");
             }
             // Todos los campos se han rellenado y las contraseñas coinciden
             else if (password.getText().toString().equals(password2.getText().toString())) {
+
                 // Insertar en BD
                 ContentValues insert = new ContentValues();
                 insert.put("Usuario", usuario.getText().toString());

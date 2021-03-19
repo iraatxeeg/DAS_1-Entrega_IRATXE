@@ -34,7 +34,7 @@ public class ActivityArtista extends AppCompatActivity {
         SQLiteDatabase bd = miBD.getInstance(this).getWritableDatabase();
 
         String[] campos = new String[] {"ID", "NombreCompleto",
-        "Nacimiento"};
+        "Nacimiento", "LugarNac"};
         String[] argumentos = new String[] {idArtista};
         Cursor c = bd.query("Artistas",campos,"ID=?",argumentos,null,null,null);
 

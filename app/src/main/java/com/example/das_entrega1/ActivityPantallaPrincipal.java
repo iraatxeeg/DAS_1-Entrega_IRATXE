@@ -40,7 +40,7 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent idArtista = new Intent(getBaseContext(), ActivityArtista.class);
-                idArtista.putExtra("idArtista",ids[laLista.getChildAdapterPosition(v)]);
+                idArtista.putExtra("idArtista",String.valueOf(ids[laLista.getChildAdapterPosition(v)]));
                 startActivity(idArtista);
             }
         });
@@ -67,7 +67,8 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
             }
         });
         laLista1.setAdapter(elAdaptador);
-        laLista1.setLayoutManager(layout);
+        LinearLayoutManager layout1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
+        laLista1.setLayoutManager(layout1);
     }
 
     @Override
