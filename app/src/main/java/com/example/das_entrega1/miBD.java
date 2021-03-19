@@ -57,7 +57,7 @@ public class miBD extends SQLiteOpenHelper {
         db.insert("Artistas", null, insert);
 
         insert.put("ID", "3");
-        insert.put("NombreCompleto", "Selena Gómez");
+        insert.put("NombreCompleto", "Selena Gomez");
         insert.put("Nacimiento", "22/07/1992");
         insert.put("LugarNac", "Grand Prairie, Texas, Estados Unidos");
         db.insert("Artistas", null, insert);
@@ -76,9 +76,108 @@ public class miBD extends SQLiteOpenHelper {
 
 
         // ÁLBUMES
-        db.execSQL("CREATE TABLE Álbumes ('ID' PRIMARY KEY " +
+        db.execSQL("CREATE TABLE Albumes ('ID' PRIMARY KEY " +
                 "NOT NULL, 'Titulo' VARCHAR(255), 'Autor' VARCHAR(255), " +
-                "'Género' VARCHAR(255), 'Nº Canciones' INTEGER)");
+                "'Género' VARCHAR(255), 'NCanciones' INTEGER," +
+                "'Anio' INTEGER)");
+
+        // Niall Horan
+        insert.put("ID", "1");
+        insert.put("Titulo", "Heartbreak Weather");
+        insert.put("Autor", "Niall Horan");
+        insert.put("Género", "Pop Rock");
+        insert.put("NCanciones", "14");
+        insert.put("Anio", "2020");
+        db.insert("Albumes", null, insert);
+
+        insert.put("ID", "2");
+        insert.put("Titulo", "Flicker");
+        insert.put("Autor", "Niall Horan");
+        insert.put("Género", "Pop");
+        insert.put("NCanciones", "13");
+        insert.put("Anio", "2017");
+        db.insert("Albumes", null, insert);
+
+        // Selena Gomez
+        insert.put("ID", "3");
+        insert.put("Titulo", "Rare");
+        insert.put("Autor", "Selena Gomez");
+        insert.put("Género", "Pop, Dance");
+        insert.put("NCanciones", "13");
+        insert.put("Anio", "2020");
+        db.insert("Albumes", null, insert);
+
+        insert.put("ID", "4");
+        insert.put("Titulo", "Revelacion");
+        insert.put("Autor", "Selena Gomez");
+        insert.put("Género", "Regueton, R&B");
+        insert.put("NCanciones", "7");
+        insert.put("Anio", "2021");
+        db.insert("Albumes", null, insert);
+
+        // Shawn Mendes
+        insert.put("ID", "5");
+        insert.put("Titulo", "Wonder");
+        insert.put("Autor", "Shawn Mendes");
+        insert.put("Género", "Pop");
+        insert.put("NCanciones", "14");
+        insert.put("Anio", "2020");
+        db.insert("Albumes", null, insert);
+
+        insert.put("ID", "6");
+        insert.put("Titulo", "Shawn Mendes");
+        insert.put("Autor", "Shawn Mendes");
+        insert.put("Género", "Pop, Rock");
+        insert.put("NCanciones", "14");
+        insert.put("Anio", "2017");
+        db.insert("Albumes", null, insert);
+
+        // Demi Lovato
+        insert.put("ID", "7");
+        insert.put("Titulo", "Tell Me You Love Me");
+        insert.put("Autor", "Demi Lovato");
+        insert.put("Género", "Pop, R&B");
+        insert.put("NCanciones", "12");
+        insert.put("Anio", "2017");
+        db.insert("Albumes", null, insert);
+
+        insert.put("ID", "8");
+        insert.put("Titulo", "Don't Forget");
+        insert.put("Autor", "Demi Lovato");
+        insert.put("Género", "Pop Rock");
+        insert.put("NCanciones", "11");
+        insert.put("Anio", "2008");
+        db.insert("Albumes", null, insert);
+
+        // Billie Eilish
+        insert.put("ID", "9");
+        insert.put("Titulo", "When We All Fall Asleep, Where Do We Go?");
+        insert.put("Autor", "Billie Eilish");
+        insert.put("Género", "Pop, Electropop");
+        insert.put("NCanciones", "14");
+        insert.put("Anio", "2019");
+        db.insert("Albumes", null, insert);
+
+        insert.put("ID", "10");
+        insert.put("Titulo", "Therefore I Am");
+        insert.put("Autor", "Billie Eilish");
+        insert.put("Género", "Música Alternativa");
+        insert.put("NCanciones", "1");
+        insert.put("Anio", "2020");
+        db.insert("Albumes", null, insert);
+
+        insert.put("ID", "11");
+        insert.put("Titulo", "everything i wanted");
+        insert.put("Autor", "Billie Eilish");
+        insert.put("Género", "Música Alternativa");
+        insert.put("NCanciones", "1");
+        insert.put("Anio", "2019");
+        db.insert("Albumes", null, insert);
+
+        // Lista de artistas favoritos
+        db.execSQL("CREATE TABLE ArtistasFav ('IdArtista' INTEGER," +
+                " 'NombreUsuario' VARCHAR(255)), PRIMARY KEY " +
+                "('IdArtista','NombreUsuario')");
     }
 
     @Override

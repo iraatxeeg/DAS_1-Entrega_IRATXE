@@ -49,6 +49,28 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
 
         LinearLayoutManager layout = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
         laLista.setLayoutManager(layout);
+
+        String[] albumes = {"Heartbreak Weather", "Flicker", "Rare", "Revelacion",
+        "Wonder", "Shawn Mendes", "Tell Me You Love Me", "Don't Forget",
+        "When We All Fall Sleep, Where Do We Go?",
+        "Therefore I Am", "everything i wanted"};
+        int[] ids1 = {1,2,3,4,5,6,7,8,9,10,11};
+        int[] fotos = {R.drawable.niallhoran, R.drawable.shawnmendes, R.drawable.selenagomez,
+                R.drawable.demilovato, R.drawable.billieeilish};
+        ElAdaptadorRecycler elAdaptador = new ElAdaptadorRecycler(nombres, fotos);
+        elAdaptador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent idArtista = new Intent(getBaseContext(), ActivityArtista.class);
+                idArtista.putExtra("idArtista",ids[laLista.getChildAdapterPosition(v)]);
+                startActivity(idArtista);
+            }
+        });
+        laLista.setAdapter(elAdaptador);
+
+
+        LinearLayoutManager layout = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
+        laLista.setLayoutManager(layout);
     }
 
     @Override

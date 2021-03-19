@@ -23,18 +23,52 @@
         android:id="@+id/elreciclerview"
         android:layout_width="332dp"
         android:layout_height="211dp"
+        android:scrollbars="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.309" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtTituloTopArtistas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="114dp" />
+        android:fontFamily="@font/montserrat_alternates_bold"
+        android:text="Nuestros artistas top 5"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/elreciclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labarraPrincipal"
+        app:layout_constraintVertical_bias="0.863" />
+
+    <TextView
+        android:id="@+id/txtTituloTopArtistas2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="352dp"
+        android:fontFamily="@font/montserrat_alternates_bold"
+        android:text="Nuestros artistas top 5"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labarraPrincipal"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/elreciclerview1"
+        android:layout_width="332dp"
+        android:layout_height="211dp"
+        android:scrollbars="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.219" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
