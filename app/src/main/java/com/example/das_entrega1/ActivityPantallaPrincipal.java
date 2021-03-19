@@ -49,7 +49,7 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
         laLista.setLayoutManager(layout);
 
         RecyclerView laLista1 = findViewById(R.id.elreciclerview1);
-        String[] albumes = {"Heartbreak Weather", "Flicker", "Rare", "Revelacion",
+        String[] albumes = {"Heartbreak Weather", "Flicker", "Rare", "Revelación",
         "Wonder", "Shawn Mendes", "Tell Me You Love Me", "Don't Forget",
         "When We All Fall Sleep, Where Do We Go?",
         "Therefore I Am", "everything i wanted"};
@@ -66,7 +66,7 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
 //                startActivity(idAlbum);
             }
         });
-        laLista1.setAdapter(elAdaptador);
+        laLista1.setAdapter(elAdaptador1);
         LinearLayoutManager layout1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
         laLista1.setLayoutManager(layout1);
     }

@@ -26,10 +26,10 @@
         android:layout_height="215dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labarra1"
-        app:layout_constraintVertical_bias="0.095"
+        app:layout_constraintVertical_bias="0.056"
         app:srcCompat="@drawable/niallhoran" />
 
     <TextView
@@ -38,10 +38,8 @@
         android:layout_height="wrap_content"
         android:text="Edad"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/txtNacimientoArtistaLugar"
-        app:layout_constraintTop_toBottomOf="@+id/txtNacimientoArtistaLugar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNacimientoArtistaLugar" />
 
     <TextView
         android:id="@+id/txtNombreArtista1"
@@ -49,10 +47,8 @@
         android:layout_height="wrap_content"
         android:text="Nombre"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/txtNombreArtista"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombreArtista"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNombreArtista" />
 
     <TextView
         android:id="@+id/txtNacimientoArtista"
@@ -70,10 +66,8 @@
         android:layout_height="wrap_content"
         android:text="Lugar"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/txtNacimientoArtista1"
-        app:layout_constraintTop_toBottomOf="@+id/txtNacimientoArtista1"
-        app:layout_constraintVertical_bias="0.002" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNacimientoArtista1" />
 
     <TextView
         android:id="@+id/txtNacimientoArtista1"
@@ -81,47 +75,20 @@
         android:layout_height="wrap_content"
         android:text="Fecha"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/txtNacimientoArtista"
-        app:layout_constraintTop_toBottomOf="@+id/txtNacimientoArtista"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNacimientoArtista" />
 
     <TextView
         android:id="@+id/txtNombreArtista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/montserrat_alternates_bold"
         android:text="Nombre"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="368dp"
-        android:layout_height="169dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.493" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_alternates_bold"
-        android:text="Top Discos"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.722" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

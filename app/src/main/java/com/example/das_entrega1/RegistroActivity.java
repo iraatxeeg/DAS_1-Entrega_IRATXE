@@ -7,6 +7,7 @@ import androidx.fragment.app.DialogFragment;
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -88,23 +89,33 @@ public class RegistroActivity extends AppCompatActivity implements Serializable 
             }
             // Todos los campos se han rellenado y las contraseñas coinciden
             else if (password.getText().toString().equals(password2.getText().toString())) {
+                // Buscar el ususario en la base de datos por si ya existe ese usuario
+                String[] campos = new String[] {"Usuario"};
+                String[] argumentos = new String[] {usuario.getText().toString()};
+                Cursor c = bd.query("Usuarios",campos,"Usuario=?",argumentos,null,null,null);
 
-                // Insertar en BD
-                ContentValues insert = new ContentValues();
-                insert.put("Usuario", usuario.getText().toString());
-                insert.put("Password", password.getText().toString());
-                insert.put("Nombre",nombre.getText().toString());
-                insert.put("Apellidos",apellidos.getText().toString());
-                insert.put("Cumpleaños",cumple.getText().toString());
+                if (c.moveToNext()) {
+                    DialogFragment dialogoAlerta = new ClaseDialogoUsuarioExiste();
+                    dialogoAlerta.show(getSupportFragmentManager(), "UsuarioExiste");
+                }
+                else {
+                    // Insertar en BD
+                    ContentValues insert = new ContentValues();
+                    insert.put("Usuario", usuario.getText().toString());
+                    insert.put("Password", password.getText().toString());
+                    insert.put("Nombre", nombre.getText().toString());
+                    insert.put("Apellidos", apellidos.getText().toString());
+                    insert.put("Cumpleaños", cumple.getText().toString());
 
-                bd.insert("Usuarios", null, insert);
+                    bd.insert("Usuarios", null, insert);
 
-                Toast toast = Toast.makeText(this, "Registro realizado con éxito.", Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0,0);
-                toast.show();
-                Intent iMain = new Intent(this, MainActivity.class);
-                startActivity(iMain);
-                finish();
+                    Toast toast = Toast.makeText(this, "Registro realizado con éxito.", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
+                    toast.show();
+                    Intent iMain = new Intent(this, MainActivity.class);
+                    startActivity(iMain);
+                    finish();
+                }
 
             } else {  // Si las contraseñas no coinciden se avisa al usuario
                 DialogFragment dialogoAlerta = new ClaseDialogoPasswordError();

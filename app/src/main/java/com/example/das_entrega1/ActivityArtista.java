@@ -56,13 +56,15 @@ public class ActivityArtista extends AppCompatActivity {
         txtLugarNac.setText(lugar);
         TextView txtEdad = findViewById(R.id.txtEdadArtista);
         Date fechaactual = new Date();
-        Date dateNac = new Date();
+        Date dateNac = new Date(System.currentTimeMillis());
         try {
             dateNac = new SimpleDateFormat("dd/MM/yyyy").parse(nacimiento);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        txtEdad.setText(String.valueOf(fechaactual.getTime() - dateNac.getTime()));
+        int milisecondsDay = 86400000;
+        txtEdad.setText(String.valueOf(fechaactual.getTime() - dateNac.getTime()/milisecondsDay)
+                + "años");
 
 
     }
