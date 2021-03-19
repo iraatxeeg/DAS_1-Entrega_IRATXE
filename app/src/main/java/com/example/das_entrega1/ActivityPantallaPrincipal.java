@@ -27,8 +27,8 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
             usuario = extras.getString("Usuario");
         }
         SQLiteDatabase bd = miBD.getInstance(this).getReadableDatabase();
-        RecyclerView laLista = findViewById(R.id.elreciclerview);
 
+        RecyclerView laLista = findViewById(R.id.elreciclerview);
 
         String[] nombres = {"Niall Horan", "Shawn Mendes", "Selena Gómez",
         "Demi Lovato", "Billie Eilish"};
@@ -45,32 +45,29 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
             }
         });
         laLista.setAdapter(elAdaptador);
-
-
         LinearLayoutManager layout = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
         laLista.setLayoutManager(layout);
 
+        RecyclerView laLista1 = findViewById(R.id.elreciclerview1);
         String[] albumes = {"Heartbreak Weather", "Flicker", "Rare", "Revelacion",
         "Wonder", "Shawn Mendes", "Tell Me You Love Me", "Don't Forget",
         "When We All Fall Sleep, Where Do We Go?",
         "Therefore I Am", "everything i wanted"};
         int[] ids1 = {1,2,3,4,5,6,7,8,9,10,11};
-        int[] fotos = {R.drawable.niallhoran, R.drawable.shawnmendes, R.drawable.selenagomez,
-                R.drawable.demilovato, R.drawable.billieeilish};
-        ElAdaptadorRecycler elAdaptador = new ElAdaptadorRecycler(nombres, fotos);
-        elAdaptador.setOnClickListener(new View.OnClickListener() {
+        int[] covers = {R.drawable.heartbreakweather, R.drawable.flicker, R.drawable.rare, R.drawable.revelacion,
+                R.drawable.wonder, R.drawable.shawnmendesalbum, R.drawable.tellmeyou, R.drawable.dontforget,
+        R.drawable.whenweall, R.drawable.thereforeiam,R.drawable.everythingiwanted};
+        ElAdaptadorRecycler elAdaptador1 = new ElAdaptadorRecycler(albumes, covers);
+        elAdaptador1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent idArtista = new Intent(getBaseContext(), ActivityArtista.class);
-                idArtista.putExtra("idArtista",ids[laLista.getChildAdapterPosition(v)]);
-                startActivity(idArtista);
+//                Intent idAlbum = new Intent(getBaseContext(), ActivityAlbum.class);
+//                idAlbum.putExtra("idAlbum",ids1[laLista1.getChildAdapterPosition(v)]);
+//                startActivity(idAlbum);
             }
         });
-        laLista.setAdapter(elAdaptador);
-
-
-        LinearLayoutManager layout = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
-        laLista.setLayoutManager(layout);
+        laLista1.setAdapter(elAdaptador);
+        laLista1.setLayoutManager(layout);
     }
 
     @Override

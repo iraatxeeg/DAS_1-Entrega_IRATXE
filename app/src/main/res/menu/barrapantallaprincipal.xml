@@ -9,8 +9,8 @@
         app:showAsAction="ifRoom|withText" />
 
     <item
-        android:id="@+id/"
-        android:icon="@drawable/iconprofile"
-        android:title="Perfil"
+        android:id="@+id/ArtistasFav"
+        android:icon="@android:drawable/btn_star"
+        android:title="Mis Artistas Fav"
         app:showAsAction="ifRoom|withText" />
 </menu>
