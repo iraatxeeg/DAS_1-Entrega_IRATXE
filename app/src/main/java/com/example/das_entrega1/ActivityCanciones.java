@@ -3,6 +3,7 @@ package com.example.das_entrega1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 public class ActivityCanciones extends AppCompatActivity {
 
@@ -14,5 +15,6 @@ public class ActivityCanciones extends AppCompatActivity {
                 findFragmentById(R.id.fragment2);
         int position = getIntent().getIntExtra("position",0);
         fragment2.rellenarDatos(position);
+        Log.i("hola", "onCreate: ActivityCaniones");
     }
 }

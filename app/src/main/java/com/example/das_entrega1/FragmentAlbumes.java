@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -42,9 +43,9 @@ public class FragmentAlbumes extends ListFragment {
         String[] argumentos = new String[] {};
         Cursor c = bd.query("Album",campos,"",argumentos,null,null,null);
 
-        String[] datos = {};
+        String[] datos = new String[11];
         int i = 0;
-        if (c.moveToNext()) {
+        while (c.moveToNext()) {
             datos[i] = c.getString(0);
             i++;
         }

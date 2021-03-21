@@ -19,4 +19,6 @@
     <string name="apellidos">Apellidos</string>
     <string name="cumplea_os">Cumpleaños</string>
     <string name="contrase_a">Contraseña</string>
+    <string name="canciones">Canciones</string>
+    <string name="aqu_aparecer_n_las_canciones_de_cada_disco">Aquí aparecerán las canciones de cada disco.</string>
 </resources>

@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_alternates"
-        android:text="Canciones"
+        android:text="@string/canciones"
         android:textSize="24sp" />
 
     <ScrollView
@@ -27,7 +27,7 @@
                 android:id="@+id/txtCanciones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Aquí aparecerán las canciones de cada disco." />
+                android:text="@string/aqu_aparecer_n_las_canciones_de_cada_disco" />
         </LinearLayout>
     </ScrollView>
 

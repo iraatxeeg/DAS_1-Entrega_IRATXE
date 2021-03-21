@@ -96,26 +96,6 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
                 startActivity(iVerTodos);
             }
         });
-
-        ////////////////////////////////////////////////////////////////////////////////////////////
-        // NOTIFICACIONES LOCALES
-        NotificationManager elManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-        NotificationCompat.Builder elBuilder = new NotificationCompat.Builder(this, "Canal1");
-        elBuilder.setSmallIcon(R.drawable.logo).setContentTitle("¡Ponte al día en Música!")
-                .setContentText("Revisa nuestros artistas y álbumes favoritos.")
-                .setVibrate(new long[] {0, 500})
-                .setAutoCancel(true);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel elCanal = new NotificationChannel("Canal1", "CanalMain",
-                    NotificationManager.IMPORTANCE_DEFAULT);
-            elCanal.setDescription("Canal Principal");
-            elCanal.setVibrationPattern(new long[] {0, 500});
-            elCanal.enableVibration(true);
-            elManager.createNotificationChannel(elCanal);
-        }
-
-        elManager.notify(1, elBuilder.build());
     }
 
     @Override

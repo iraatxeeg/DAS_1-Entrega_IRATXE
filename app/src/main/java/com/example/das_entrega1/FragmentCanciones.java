@@ -1,6 +1,7 @@
 package com.example.das_entrega1;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,9 +29,13 @@ public class FragmentCanciones extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
     }
 
     public void rellenarDatos(int position) {
+        txt = getView().findViewById(R.id.txtCanciones);
+        txt.setText("");
+        Log.i("hola", "rellenarDatos: fragmentCanciones");
         InputStream fich;
         if (position == 1) fich = getResources().openRawResource(R.raw.c_heartbreak);
         if (position == 2) fich = getResources().openRawResource(R.raw.c_flicker);
@@ -44,8 +49,7 @@ public class FragmentCanciones extends Fragment {
         if (position == 10) fich = getResources().openRawResource(R.raw.c_thereforeiam);
         else fich = getResources().openRawResource(R.raw.c_everythingiwanted);
 
-        txt = getView().findViewById(R.id.txtCanciones);
-        txt.setText("");
+
         try {
             BufferedReader buff = new BufferedReader(new InputStreamReader(fich));
             String linea;
