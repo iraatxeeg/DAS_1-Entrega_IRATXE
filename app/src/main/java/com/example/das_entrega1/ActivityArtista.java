@@ -99,12 +99,4 @@ public class ActivityArtista extends AppCompatActivity {
         return true;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//        int id = item.getItemId();
-//        if (id == R.id.añadirArtistaFav) {
-//
-//        }
-//        return ;
-//    }
 }

@@ -15,6 +15,5 @@ public class ActivityCanciones extends AppCompatActivity {
                 findFragmentById(R.id.fragment2);
         int position = getIntent().getIntExtra("position",0);
         fragment2.rellenarDatos(position);
-        Log.i("hola", "onCreate: ActivityCaniones");
     }
 }

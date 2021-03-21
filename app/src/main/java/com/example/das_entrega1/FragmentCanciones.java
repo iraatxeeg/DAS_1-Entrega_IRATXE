@@ -35,18 +35,17 @@ public class FragmentCanciones extends Fragment {
     public void rellenarDatos(int position) {
         txt = getView().findViewById(R.id.txtCanciones);
         txt.setText("");
-        Log.i("hola", "rellenarDatos: fragmentCanciones");
         InputStream fich;
-        if (position == 1) fich = getResources().openRawResource(R.raw.c_heartbreak);
-        if (position == 2) fich = getResources().openRawResource(R.raw.c_flicker);
-        if (position == 3) fich = getResources().openRawResource(R.raw.c_rare);
-        if (position == 4) fich = getResources().openRawResource(R.raw.c_revelacion);
-        if (position == 5) fich = getResources().openRawResource(R.raw.c_wonder);
-        if (position == 6) fich = getResources().openRawResource(R.raw.c_shawnmendes);
-        if (position == 7) fich = getResources().openRawResource(R.raw.c_tellmeyou);
-        if (position == 8) fich = getResources().openRawResource(R.raw.c_dontforget);
-        if (position == 9) fich = getResources().openRawResource(R.raw.c_whenweall);
-        if (position == 10) fich = getResources().openRawResource(R.raw.c_thereforeiam);
+        if (position == 0) fich = getResources().openRawResource(R.raw.c_heartbreak);
+        else if (position == 1) fich = getResources().openRawResource(R.raw.c_flicker);
+        else if (position == 2) fich = getResources().openRawResource(R.raw.c_rare);
+        else if (position == 3) fich = getResources().openRawResource(R.raw.c_revelacion);
+        else if (position == 4) fich = getResources().openRawResource(R.raw.c_wonder);
+        else if (position == 5) fich = getResources().openRawResource(R.raw.c_shawnmendes);
+        else if (position == 6) fich = getResources().openRawResource(R.raw.c_tellmeyou);
+        else if (position == 7) fich = getResources().openRawResource(R.raw.c_dontforget);
+        else if (position == 8) fich = getResources().openRawResource(R.raw.c_whenweall);
+        else if (position == 9) fich = getResources().openRawResource(R.raw.c_thereforeiam);
         else fich = getResources().openRawResource(R.raw.c_everythingiwanted);
 
 
@@ -55,8 +54,9 @@ public class FragmentCanciones extends Fragment {
             String linea;
             while (buff.readLine() != null) {
                 linea = buff.readLine();
-                txt.setText(txt.getText() + linea + "\n");
+                txt.setText(txt.getText().toString() + linea + "\n");
             }
+
 
         } catch (IOException e) {
             e.printStackTrace();

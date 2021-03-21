@@ -22,9 +22,8 @@ public class ActivityAlbum extends AppCompatActivity implements FragmentAlbumes.
             fragment2.rellenarDatos(position);
         } else {
             Intent i = new Intent(this, ActivityCanciones.class);
-            i.putExtra("position", position);
             startActivity(i);
-            Log.i("hola", "seleccionarElemento: activityAlbum");
+            finish();
         }
     }
 }
