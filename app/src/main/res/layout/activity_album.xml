@@ -9,8 +9,8 @@
     <fragment
         android:id="@+id/fragment"
         android:name="com.example.das_entrega1.FragmentAlbumes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

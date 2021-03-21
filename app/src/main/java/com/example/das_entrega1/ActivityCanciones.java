@@ -10,5 +10,9 @@ public class ActivityCanciones extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_canciones);
+        FragmentCanciones fragment2 = (FragmentCanciones) getSupportFragmentManager().
+                findFragmentById(R.id.fragment2);
+        int position = getIntent().getIntExtra("position",0);
+        fragment2.rellenarDatos(position);
     }
 }
