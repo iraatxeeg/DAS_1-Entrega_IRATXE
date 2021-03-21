@@ -8,9 +8,4 @@
         android:title="Perfil"
         app:showAsAction="ifRoom|withText" />
 
-    <item
-        android:id="@+id/ArtistasFav"
-        android:icon="@android:drawable/btn_star"
-        android:title="Mis Artistas Fav"
-        app:showAsAction="ifRoom|withText" />
 </menu>

@@ -177,10 +177,6 @@ public class miBD extends SQLiteOpenHelper {
         insert1.put("Anio", "2019");
         db.insert("Album", null, insert1);
 
-        // Lista de artistas favoritos
-        db.execSQL("CREATE TABLE ArtistasFav ('IdArtista' INTEGER," +
-                " 'NombreUsuario' VARCHAR(255), PRIMARY KEY " +
-                "('IdArtista','NombreUsuario'))");
     }
 
     @Override

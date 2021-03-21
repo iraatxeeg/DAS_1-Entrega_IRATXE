@@ -2,11 +2,18 @@ package com.example.das_entrega1;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -80,6 +87,27 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
         laLista1.setAdapter(elAdaptador1);
         LinearLayoutManager layout1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
         laLista1.setLayoutManager(layout1);
+
+
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // NOTIFICACIONES LOCALES
+        NotificationManager elManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationCompat.Builder elBuilder = new NotificationCompat.Builder(this, "Canal1");
+        elBuilder.setSmallIcon(R.drawable.logo).setContentTitle("¡Ponte al día en Música!")
+                .setContentText("Revisa nuestros artistas y álbumes favoritos.")
+                .setVibrate(new long[] {0, 500})
+                .setAutoCancel(true);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel elCanal = new NotificationChannel("Canal1", "CanalMain",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            elCanal.setDescription("Canal Principal");
+            elCanal.setVibrationPattern(new long[] {0, 500});
+            elCanal.enableVibration(true);
+            elManager.createNotificationChannel(elCanal);
+        }
+
+        elManager.notify(1, elBuilder.build());
     }
 
     @Override

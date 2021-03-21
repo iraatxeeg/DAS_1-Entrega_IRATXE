@@ -33,15 +33,6 @@
         app:srcCompat="@drawable/niallhoran" />
 
     <TextView
-        android:id="@+id/txtEdadArtista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edad"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/txtNacimientoArtistaLugar"
-        app:layout_constraintTop_toBottomOf="@+id/txtNacimientoArtistaLugar" />
-
-    <TextView
         android:id="@+id/txtNombreArtista1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,7 +94,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEdadArtista"
-        app:layout_constraintVertical_bias="0.274" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNacimientoArtistaLugar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
