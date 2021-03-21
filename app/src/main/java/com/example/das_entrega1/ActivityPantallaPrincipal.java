@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class ActivityPantallaPrincipal extends AppCompatActivity {
 
@@ -26,9 +28,15 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
         if (extras != null) {
             usuario = extras.getString("Usuario");
         }
+        String text = "Hola " + usuario;
+        Toast toast = Toast.makeText(this, text, Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
+        toast.show();
 
         SQLiteDatabase bd = miBD.getInstance(this).getReadableDatabase();
 
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // RecyclerView Artistas
         RecyclerView laLista = findViewById(R.id.elreciclerview);
 
         String[] nombres = {"Niall Horan", "Shawn Mendes", "Selena Gómez",
@@ -49,6 +57,8 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
         LinearLayoutManager layout = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
         laLista.setLayoutManager(layout);
 
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // RecyclerView Discos
         RecyclerView laLista1 = findViewById(R.id.elreciclerview1);
         String[] albumes = {"Heartbreak Weather", "Flicker", "Rare", "Revelación",
         "Wonder", "Shawn Mendes", "Tell Me You Love Me", "Don't Forget",

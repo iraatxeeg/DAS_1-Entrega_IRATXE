@@ -39,15 +39,15 @@ public class ActivityAlbum extends AppCompatActivity {
             i++;
         }
 
-        Bundle args = new Bundle();
-        args.putStringArray("Tiulos", tituloAlbum);
-
-        FragmentAlbumes newFragment = new FragmentAlbumes();
-        newFragment.setArguments(args);
-
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment, (Fragment) newFragment);
+//        Bundle args = new Bundle();
+//        args.putStringArray("Tiulos", tituloAlbum);
+//
+//        FragmentAlbumes newFragment = new FragmentAlbumes();
+//        newFragment.setArguments(args);
+//
+//        FragmentManager fm = getFragmentManager();
+//        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+//        fragmentTransaction.replace(R.id.fragment, (Fragment) newFragment);
     }
 
     public void seleccionarElemento(int position) {

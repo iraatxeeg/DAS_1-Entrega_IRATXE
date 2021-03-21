@@ -59,17 +59,6 @@ public class ActivityArtista extends AppCompatActivity {
         txtFechaNac.setText(nacimiento);
         TextView txtLugarNac = findViewById(R.id.txtNacimientoArtistaLugar);
         txtLugarNac.setText(lugar);
-        TextView txtEdad = findViewById(R.id.txtEdadArtista);
-        Date fechaactual = new Date();
-        Date dateNac = new Date(System.currentTimeMillis());
-        try {
-            dateNac = new SimpleDateFormat("dd/MM/yyyy").parse(nacimiento);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        int milisecondsDay = 86400000;
-        txtEdad.setText(String.valueOf(fechaactual.getTime() - dateNac.getTime()/milisecondsDay/360)
-                + " años");
 
         ImageView imagen = findViewById(R.id.imageViewArtista);
         if (idArtista.equals("1")) imagen.setImageResource(R.drawable.niallhoran);

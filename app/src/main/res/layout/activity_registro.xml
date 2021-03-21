@@ -107,6 +107,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_alternates_bold"
         android:text="@string/registro"
+        android:textColor="#FF9AC2"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -7,10 +7,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -51,21 +50,6 @@ public class ActivityPerfil extends AppCompatActivity {
             cumple.setText(c.getString(2));
             password = c.getString(3);
         }
-
-        Button btnEditar = findViewById(R.id.btnEditar);
-        btnEditar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent iEdit = new Intent(getBaseContext(), ActivityEditarPerfil.class);
-                iEdit.putExtra("Usuario", idUsuario);
-                iEdit.putExtra("Password", password);
-                iEdit.putExtra("Nombre", nombre.getText().toString());
-                iEdit.putExtra("Apellidos", apellidos.getText().toString());
-                iEdit.putExtra("Cumple", cumple.getText().toString());
-                startActivity(iEdit);
-                finish();
-            }
-        });
     }
 
     @Override
@@ -74,6 +58,20 @@ public class ActivityPerfil extends AppCompatActivity {
         return true;
     }
 
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id=item.getItemId();
+        if(id == R.id.opcionEditar) {
+            Intent iEdit = new Intent(this, ActivityEditarPerfil.class);
+            iEdit.putExtra("Usuario", idUsuario);
+            iEdit.putExtra("Password", password);
+            iEdit.putExtra("Nombre", nombre.getText().toString());
+            iEdit.putExtra("Apellidos", apellidos.getText().toString());
+            iEdit.putExtra("Cumple", cumple.getText().toString());
+            startActivity(iEdit);
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }
