@@ -26,6 +26,7 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
         if (extras != null) {
             usuario = extras.getString("Usuario");
         }
+
         SQLiteDatabase bd = miBD.getInstance(this).getReadableDatabase();
 
         RecyclerView laLista = findViewById(R.id.elreciclerview);
@@ -61,9 +62,9 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
         elAdaptador1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent idAlbum = new Intent(getBaseContext(), ActivityAlbum.class);
-//                idAlbum.putExtra("idAlbum",ids1[laLista1.getChildAdapterPosition(v)]);
-//                startActivity(idAlbum);
+                Intent idAlbum = new Intent(getBaseContext(), ActivityAlbum.class);
+                idAlbum.putExtra("idAlbum",ids1[laLista1.getChildAdapterPosition(v)]);
+                startActivity(idAlbum);
             }
         });
         laLista1.setAdapter(elAdaptador1);
@@ -85,6 +86,6 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
             iPerfil.putExtra("Usuario", usuario);
             startActivity(iPerfil);
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 }

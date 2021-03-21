@@ -3,11 +3,15 @@ package com.example.das_entrega1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.ParseException;
@@ -16,6 +20,7 @@ import java.util.Date;
 
 public class ActivityArtista extends AppCompatActivity {
 
+    String idArtista;
     // Actividad para mostrar la información de cada artista
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +31,7 @@ public class ActivityArtista extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.labarra1));
 
         Bundle extras = getIntent().getExtras();
-        String idArtista = "";
+        idArtista = "";
         if (extras != null) {
             idArtista = extras.getString("idArtista");
         }
@@ -63,9 +68,25 @@ public class ActivityArtista extends AppCompatActivity {
             e.printStackTrace();
         }
         int milisecondsDay = 86400000;
-        txtEdad.setText(String.valueOf(fechaactual.getTime() - dateNac.getTime()/milisecondsDay)
-                + "años");
+        txtEdad.setText(String.valueOf(fechaactual.getTime() - dateNac.getTime()/milisecondsDay/360)
+                + " años");
 
+        ImageView imagen = findViewById(R.id.imageViewArtista);
+        if (idArtista.equals("1")) imagen.setImageResource(R.drawable.niallhoran);
+        if (idArtista.equals("2")) imagen.setImageResource(R.drawable.shawnmendes);
+        if (idArtista.equals("3")) imagen.setImageResource(R.drawable.selenagomez);
+        if (idArtista.equals("4")) imagen.setImageResource(R.drawable.demilovato);
+        if (idArtista.equals("5")) imagen.setImageResource(R.drawable.billieeilish);
+
+        Button btnAlbum = findViewById(R.id.btnAlbumes);
+        btnAlbum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iAlbum = new Intent(getBaseContext(), ActivityAlbum.class);
+                iAlbum.putExtra("IdArtista", idArtista);
+                startActivity(iAlbum);
+            }
+        });
 
     }
 
@@ -75,12 +96,12 @@ public class ActivityArtista extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.añadirArtistaFav) {
-
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        int id = item.getItemId();
+//        if (id == R.id.añadirArtistaFav) {
+//
+//        }
+//        return ;
+//    }
 }

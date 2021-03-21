@@ -122,7 +122,7 @@ public class RegistroActivity extends AppCompatActivity implements Serializable 
                 dialogoAlerta.show(getSupportFragmentManager(), "PasswordError");
             }
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
 }

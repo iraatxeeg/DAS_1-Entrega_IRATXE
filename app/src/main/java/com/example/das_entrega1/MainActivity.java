@@ -13,7 +13,7 @@ import android.widget.EditText;
 
 import java.io.Serializable;
 
-public class MainActivity extends AppCompatActivity implements Serializable {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
