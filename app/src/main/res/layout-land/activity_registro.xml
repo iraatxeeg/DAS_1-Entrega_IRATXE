@@ -90,7 +90,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/barraRegistro"
+        android:id="@+id/labarraRegistro"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#FF9AC2"
@@ -111,7 +111,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barraRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/labarraRegistro"
         app:layout_constraintVertical_bias="0.096" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

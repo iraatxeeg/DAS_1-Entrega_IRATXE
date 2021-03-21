@@ -19,6 +19,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class ActivityPantallaPrincipal extends AppCompatActivity {
@@ -67,20 +68,17 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
         ////////////////////////////////////////////////////////////////////////////////////////////
         // RecyclerView Discos
         RecyclerView laLista1 = findViewById(R.id.elreciclerview1);
-        String[] albumes = {"Heartbreak Weather", "Flicker", "Rare", "Revelación",
-        "Wonder", "Shawn Mendes", "Tell Me You Love Me", "Don't Forget",
-        "When We All Fall Sleep, Where Do We Go?",
-        "Therefore I Am", "everything i wanted"};
-        int[] ids1 = {1,2,3,4,5,6,7,8,9,10,11};
-        int[] covers = {R.drawable.heartbreakweather, R.drawable.flicker, R.drawable.rare, R.drawable.revelacion,
-                R.drawable.wonder, R.drawable.shawnmendesalbum, R.drawable.tellmeyou, R.drawable.dontforget,
-        R.drawable.whenweall, R.drawable.thereforeiam,R.drawable.everythingiwanted};
+        String[] albumes = {"Heartbreak Weather", "Rare", "Wonder", "Don't Forget",
+        "When We All Fall Sleep, Where Do We Go?"};
+        int[] ids1 = {1,3,5,8,9};
+        int[] covers = {R.drawable.heartbreakweather, R.drawable.rare, R.drawable.wonder,
+                R.drawable.dontforget, R.drawable.whenweall};
         ElAdaptadorRecycler elAdaptador1 = new ElAdaptadorRecycler(albumes, covers);
         elAdaptador1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent idAlbum = new Intent(getBaseContext(), ActivityAlbum.class);
-                idAlbum.putExtra("idAlbum",ids1[laLista1.getChildAdapterPosition(v)]);
+                Intent idAlbum = new Intent(getBaseContext(), ActivityInfoAlbumes.class);
+                idAlbum.putExtra("idAlbum",String.valueOf(ids1[laLista1.getChildAdapterPosition(v)]));
                 startActivity(idAlbum);
             }
         });
@@ -88,6 +86,16 @@ public class ActivityPantallaPrincipal extends AppCompatActivity {
         LinearLayoutManager layout1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false);
         laLista1.setLayoutManager(layout1);
 
+        ////////////////////////////////////////////////////////////////////////////////////////////
+        // VER TODOS LOS ÁLBUMES
+        Button btnVerTodos = findViewById(R.id.btnVerTodos);
+        btnVerTodos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iVerTodos = new Intent(getBaseContext(),ActivityAlbum.class);
+                startActivity(iVerTodos);
+            }
+        });
 
         ////////////////////////////////////////////////////////////////////////////////////////////
         // NOTIFICACIONES LOCALES

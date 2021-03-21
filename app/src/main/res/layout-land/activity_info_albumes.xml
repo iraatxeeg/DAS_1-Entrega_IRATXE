@@ -15,9 +15,9 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtAutorAlbum1"
-        app:layout_constraintTop_toBottomOf="@+id/txtAutorAlbum1"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toEndOf="@+id/txtTituloALbum"
+        app:layout_constraintTop_toTopOf="@+id/txtTituloALbum"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -29,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtTituloALbum"
+        app:layout_constraintStart_toStartOf="@+id/txtGeneroAlbum"
         app:layout_constraintTop_toBottomOf="@+id/txtGeneroAlbum"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -56,7 +56,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtTituloALbum"
+        app:layout_constraintStart_toStartOf="@+id/txtAnioAlbum"
         app:layout_constraintTop_toBottomOf="@+id/txtAnioAlbum"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -109,10 +109,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewAlbum"
-        app:layout_constraintVertical_bias="0.120000005" />
+        app:layout_constraintTop_toTopOf="@+id/imageViewAlbum"
+        app:layout_constraintVertical_bias="0.098" />
 
     <ImageView
         android:id="@+id/imageViewAlbum"
@@ -120,10 +120,10 @@
         android:layout_height="215dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.165"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labarraInfoAlbum"
-        app:layout_constraintVertical_bias="0.07999998"
+        app:layout_constraintVertical_bias="0.337"
         app:srcCompat="@drawable/niallhoran"
         tools:srcCompat="@drawable/heartbreakweather" />
 

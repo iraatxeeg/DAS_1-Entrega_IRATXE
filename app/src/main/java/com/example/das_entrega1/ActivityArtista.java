@@ -1,6 +1,5 @@
 package com.example.das_entrega1;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,15 +7,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ActivityArtista extends AppCompatActivity {
 
@@ -28,7 +22,7 @@ public class ActivityArtista extends AppCompatActivity {
         setContentView(R.layout.activity_artista);
 
         // Barra con opciones: Añadir artista a favs
-        setSupportActionBar(findViewById(R.id.labarra1));
+        setSupportActionBar(findViewById(R.id.labarrainfoartitsta));
 
         Bundle extras = getIntent().getExtras();
         idArtista = "";
@@ -67,15 +61,6 @@ public class ActivityArtista extends AppCompatActivity {
         if (idArtista.equals("4")) imagen.setImageResource(R.drawable.demilovato);
         if (idArtista.equals("5")) imagen.setImageResource(R.drawable.billieeilish);
 
-        Button btnAlbum = findViewById(R.id.btnAlbumes);
-        btnAlbum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent iAlbum = new Intent(getBaseContext(), ActivityAlbum.class);
-                iAlbum.putExtra("IdArtista", idArtista);
-                startActivity(iAlbum);
-            }
-        });
 
     }
 

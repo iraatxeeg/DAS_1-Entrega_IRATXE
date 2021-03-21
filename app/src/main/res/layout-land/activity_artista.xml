@@ -8,7 +8,7 @@
 
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/labarra1"
+        android:id="@+id/labarrainfoartitsta"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#FF9AC2"
@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labarra1"
+        app:layout_constraintTop_toBottomOf="@+id/labarrainfoartitsta"
         app:layout_constraintVertical_bias="0.229"
         app:srcCompat="@drawable/niallhoran" />
 
@@ -80,20 +80,5 @@
         app:layout_constraintHorizontal_bias="0.297"
         app:layout_constraintStart_toEndOf="@+id/imageViewArtista"
         app:layout_constraintTop_toTopOf="@+id/imageViewArtista" />
-
-    <Button
-        android:id="@+id/btnAlbumes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FF9AC2"
-        android:fontFamily="@font/montserrat_alternates"
-        android:text="Ir a sus Álbumes"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewArtista"
-        app:layout_constraintVertical_bias="0.378" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

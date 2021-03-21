@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ActivityPantallaPrincipal">
 
+    <Button
+        android:id="@+id/btnVerTodos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF9AC2"
+        android:fontFamily="@font/montserrat_alternates"
+        android:text="Ver todos los álbumes"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/elreciclerview1"
+        app:layout_constraintVertical_bias="0.0" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/labarraPrincipal"
         android:layout_width="match_parent"
@@ -36,21 +51,21 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_alternates_bold"
         android:text="Nuestros artistas top 5"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.215" />
+        app:layout_constraintVertical_bias="0.182" />
 
     <TextView
         android:id="@+id/txtTituloTopAlbum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_alternates_bold"
-        android:text="Nuestros álbumes top "
-        android:textSize="24sp"
+        android:text="Nuestros álbumes top 5"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtTituloTopArtistas"
@@ -60,7 +75,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/elreciclerview1"
         android:layout_width="332dp"
-        android:layout_height="250dp"
+        android:layout_height="240dp"
         android:scrollbars="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/txtTituloTopAlbum"
